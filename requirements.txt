@@ -1,0 +1,10 @@
+decorator==5.1.0
+dirsync==2.2.5
+flake8==3.9.2
+mccabe==0.6.1
+psutil==5.8.0
+pycodestyle==2.7.0
+pyflakes==2.3.1
+self==2020.12.3
+six==1.16.0
+websockets==10.0
