@@ -1,20 +1,13 @@
-import os
+import subprocess
 import psutil
 import time
 import csv
 
 
 def open_you_programm():
-    t = str(input('Введите путь к файлу (прим. D:/SQLiteStudio/SQLiteStudio.exe): '))
-    topen = os.startfile(t)
-
-    PROCNAME = t.split('/')[-1]
-
-    for proc in psutil.process_iter():
-        if proc.name() == PROCNAME:
-            print(proc)
-            pid = proc.pid
-            print(pid)
+    t = str(input(r'Введите путь к файлу (прим. D:/SQLiteStudio/SQLiteStudio.exe): '))
+    proc = subprocess.Popen(t, shell=True)
+    pid = proc.pid
 
     interval = int(input('Введите интервал сбора статистики: '))
     p = psutil.Process(pid=pid)
@@ -27,7 +20,7 @@ def open_you_programm():
                 thewriter.writeheader()
                 while(True):
                     thewriter.writerow({'cpu_percent' : p.cpu_percent(interval=1),
-                                        'Resident Set Size, Mb' : p.memory_info().rss/1000000, 'Virtual Memory Size, Mb' :
+                                        'Resident_Set_Size,_Mb' : p.memory_info().rss/1000000, 'Virtual_Memory_Size,_Mb' :
                                        p.memory_info().vms/1000000, 'num_handles' : p.num_handles()})
                     print()
                     print(p.cpu_percent(interval=1))
