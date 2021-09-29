@@ -16,7 +16,7 @@ def open_you_programm():
     try:
         try:
             with open('statistic.csv', "w", newline="") as f:
-                fieldnames = ['cpu_percent', 'Resident Set Size, Mb', 'Virtual Memory Size, Mb', 'num_handles']
+                fieldnames = ['cpu_percent', 'Resident_Set_Size,_Mb', 'Virtual_Memory_Size,_Mb', 'num_handles']
                 thewriter = csv.DictWriter(f, fieldnames=fieldnames)
                 thewriter.writeheader()
                 while(True):
