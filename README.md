@@ -2,7 +2,7 @@
 
 1. Создать пустой проект и настроить виртуальное окружение
 2. Загрузить код, написав:
- `git clone git@github.com:Ririgirl/veeam_test.git`
+ `git clone git@github.com:Ririgirl/veeam_test.git` ИЛИ `https://github.com/Ririgirl/veeam_test.git`
 3. Установить зависимости, прописав в консоли 
 `pip install -r requirements.txt` 
 
