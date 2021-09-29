@@ -12,6 +12,7 @@ def open_you_programm():
     interval = int(input('Введите интервал сбора статистики: '))
     p = psutil.Process(pid=pid)
 
+
     try:
         try:
             with open('statistic.csv', "w", newline="") as f:
