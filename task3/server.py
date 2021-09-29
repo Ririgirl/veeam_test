@@ -29,7 +29,7 @@ print('Port 8001 is opened')
 users = []
 usersnames ={}
 
-
+#server authorization, connect to 8001
 def autorization(user):
     user.send(f'Введите ваш ник и ваш код, который был автоматически сгенерирован'.encode('utf-8'))
     user_socket2, address2 = server2.accept()
@@ -45,9 +45,10 @@ def autorization(user):
         user.send(f'Ваще сообщение {text} записано в логи.'.encode('utf-8'))
         logging.info(f'User {username} send {text}')
     else:
-        user.send('Ваш уникальный код введен не верно. Сообщение не передано.'.encode('utf-8'))
+        user.send('Ваш авторизация завершилась неудачей.'.encode('utf-8'))
 
 
+#choosing a unique name and getting a password
 def uniq_name(user, address):
     print('unique name')
     uniq_name = user.recv(2048)
@@ -66,6 +67,7 @@ def uniq_name(user, address):
         user.send('Это имя занято'.encode('utf-8'))
 
 
+#server connection, port 8000
 def start_server():
     while True:
         user_socket1, address1 = server1.accept()
